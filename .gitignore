@@ -1,0 +1,24 @@
+# Visual Studio temporary files, build results, and
+# user-specific files
+.vs/
+*.vcxproj.user
+*.vcxproj.filters
+*.suo
+*.user
+
+# Build directories
+[Bb]in/
+[Oo]bj/
+x64/
+Debug/
+Release/
+
+# Visual C++ build artifacts
+*.exe
+*.exe.recipe
+*.ilk
+*.log
+*.obj
+*.tlog/
+*.pdb
+*.idb
