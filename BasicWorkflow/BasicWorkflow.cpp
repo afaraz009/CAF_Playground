@@ -35,20 +35,26 @@ behavior Node2(event_based_actor* self) {
           }
     };
 }
-void Trigger(event_based_actor* self,  std::vector<ActorFactory> factories) {
+behavior Trigger(event_based_actor* self,  std::vector<ActorFactory> factories) {
     
-        // Spawn and interact with each actor in order
-        for (auto& factory : factories) {
-            auto spawned = self->spawn(factory);
-
-            // Send a message to the spawned actor and handle its reply
-            self->mail("Trigger")
-                .request(spawned, 50s)
-                .then([self](const std::string& response) {
+      
+    self->mail("Trigger",0).send(self);
+	return 
+    {
+		[self,factories](const std::string& msg, int index) {
+			self->println("got: {} {}", msg, index);
+            if(index >=2)
+				return;
+			
+           // self->mail(msg, index+1).send(self);
+            auto spawned = self->spawn(factories[index]);
+            self->mail(msg).request(spawned, 50s)
+                .then([self,index](const std::string& response) {
                 self->println("Response {}", response);
+                self->mail(response, index+1).send(self);
                     });
-        }
-          //  });
+		}
+	};
 }
 
 
