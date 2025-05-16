@@ -14,6 +14,7 @@ using namespace std::literals;
 using ActorFactory = behavior(*)(event_based_actor*);
 
 
+
 behavior Node1(event_based_actor* self) {
     return {
       [self](const std::string& msg) {
@@ -21,8 +22,8 @@ behavior Node1(event_based_actor* self) {
             std::string ret = msg;
              std::transform(ret.begin(), ret.end(), ret.begin(),
                    [](unsigned char c) { return std::toupper(c); });
-
-           return ret;
+             self->quit();
+             return ret;
       }
     };
 }
@@ -35,6 +36,7 @@ behavior Node2(event_based_actor* self) {
           }
     };
 }
+
 behavior Trigger(event_based_actor* self,  std::vector<ActorFactory> factories) {
     
       
@@ -52,7 +54,9 @@ behavior Trigger(event_based_actor* self,  std::vector<ActorFactory> factories) 
                 .then([self,index](const std::string& response) {
                 self->println("Response {}", response);
                 self->mail(response, index+1).send(self);
+                //anon_send_exit(spawned, exit_reason::normal);
                     });
+           
 		}
 	};
 }
