@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FC91D9A3-A996-338A-B30C-CF0672038818}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ZERO_CHECK</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CODE\actor-framework\libcaf_net;D:\CODE\actor-framework\build\libcaf_net;D:\CODE\actor-framework\libcaf_core;D:\CODE\actor-framework\build\libcaf_core;C:\Users\ahmed\miniconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CODE\actor-framework\libcaf_net;D:\CODE\actor-framework\build\libcaf_net;D:\CODE\actor-framework\libcaf_core;D:\CODE\actor-framework\build\libcaf_core;C:\Users\ahmed\miniconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CODE\actor-framework\libcaf_net;D:\CODE\actor-framework\build\libcaf_net;D:\CODE\actor-framework\libcaf_core;D:\CODE\actor-framework\build\libcaf_core;C:\Users\ahmed\miniconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CODE\actor-framework\libcaf_net;D:\CODE\actor-framework\build\libcaf_net;D:\CODE\actor-framework\libcaf_core;D:\CODE\actor-framework\build\libcaf_core;C:\Users\ahmed\miniconda3\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\182de30193a4fd2ca239a06a8fa508f0\generate.stamp.rule">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/CODE/CAF_Playground/PocoWithCAF -BD:/CODE/CAF_Playground/PocoWithCAF/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/CODE/CAF_Playground/PocoWithCAF/build/CAF_HelloWorld.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config-version.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\openssl\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\FindPCRE2.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\SelectLibraryConfigurations.cmake;D:\CODE\CAF_Playground\PocoWithCAF\CMakeLists.txt;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/CODE/CAF_Playground/PocoWithCAF -BD:/CODE/CAF_Playground/PocoWithCAF/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/CODE/CAF_Playground/PocoWithCAF/build/CAF_HelloWorld.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config-version.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\openssl\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\FindPCRE2.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\SelectLibraryConfigurations.cmake;D:\CODE\CAF_Playground\PocoWithCAF\CMakeLists.txt;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/CODE/CAF_Playground/PocoWithCAF -BD:/CODE/CAF_Playground/PocoWithCAF/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/CODE/CAF_Playground/PocoWithCAF/build/CAF_HelloWorld.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config-version.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\openssl\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\FindPCRE2.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\SelectLibraryConfigurations.cmake;D:\CODE\CAF_Playground\PocoWithCAF\CMakeLists.txt;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/CODE/CAF_Playground/PocoWithCAF -BD:/CODE/CAF_Playground/PocoWithCAF/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/CODE/CAF_Playground/PocoWithCAF/build/CAF_HelloWorld.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config-version.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\expat.cmake;C:\CODE\vcpkg\installed\x64-windows\share\expat\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\openssl\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\FindPCRE2.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoCryptoTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoFoundationTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoJSONTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetSSLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoNetTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoUtilTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfig.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLConfigVersion.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\poco\PocoXMLTargets.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-debug.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config-release.cmake;C:\CODE\vcpkg\installed\x64-windows\share\unofficial-utf8proc\unofficial-utf8proc-config.cmake;C:\CODE\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\CODE\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\SelectLibraryConfigurations.cmake;D:\CODE\CAF_Playground\PocoWithCAF\CMakeLists.txt;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CODE\CAF_Playground\PocoWithCAF\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,45 +1,47 @@
-// Simple HTTP client that prints the response
+// caf_http_client_openai.cpp
+//
+// Simple CAF HTTP client that sends a POST to OpenAI's Chat Completions API
+// and prints out the response.
 
 #include "caf/net/http/client.hpp"
-
 #include "caf/net/http/with.hpp"
 #include "caf/net/ip.hpp"
 #include "caf/net/middleman.hpp"
 #include "caf/net/octet_stream/transport.hpp"
 #include "caf/net/tcp_stream_socket.hpp"
-
+#include "caf/net/ssl/context.hpp"
+//#include "caf/net/ssl/verify.hpp"
 #include "caf/actor_system.hpp"
 #include "caf/actor_system_config.hpp"
 #include "caf/caf_main.hpp"
-#include "caf/detail/latch.hpp"
 #include "caf/event_based_actor.hpp"
-#include "caf/ipv4_address.hpp"
-#include "caf/scheduled_actor/flow.hpp"
 #include "caf/span.hpp"
-#include "caf/uuid.hpp"
-
-#include <cassert>
+#include "openssl/ssl.h"
+#include <atomic>
 #include <csignal>
-#include <memory>
-#include <utility>
+#include <cstdlib>
+#include <string>
+#include <string_view>
 
 using namespace std::literals;
 namespace http = caf::net::http;
 namespace ssl = caf::net::ssl;
 using namespace caf;
 
-// -- constants ----------------------------------------------------------------
 
-constexpr auto default_method = http::method::get;
+// we always do a POST
+constexpr auto default_method = http::method::post;
 
-// -- configuration setup ------------------------------------------------------
 struct config : actor_system_config {
     config() {
+        // no load<…>() calls here
         opt_group{ custom_options_, "global" }
-            .add<http::method>("method,m", "HTTP method to use")
-            .add<std::string>("payload,p", "Optional payload to send");
-        opt_group{ custom_options_, "tls" } //
-        .add<std::string>("ca-file", "CA file for trusted servers");
+            .add<caf::net::http::method>("method,m",
+                "HTTP method to use (ignored, always POST)")
+            .add<std::string>("payload,p", "Payload (ignored)");
+        /*opt_group{ custom_options_, "tls" }
+            .add<std::string>("ca-file",
+                "Path to CA bundle (e.g. cacert.pem)");*/
     }
 
     caf::settings dump_content() const override {
@@ -50,81 +52,94 @@ struct config : actor_system_config {
 };
 
 namespace {
+    std::atomic<bool> shutdown_flag{ false };
+}
 
-    std::atomic<bool> shutdown_flag;
-
-} // namespace
-
-int caf_main(caf::actor_system& sys, const config& cfg) {
+int caf_main(actor_system& sys, const config& cfg) {
+    // allow SIGTERM to break out
     signal(SIGTERM, [](int) { shutdown_flag = true; });
-    // Get URI from config (positional argument).
-    auto remainder = cfg.remainder();
-    if (remainder.size() != 1) {
-        sys.println("*** expected mandatory positional argument: URL");
+
+    // require exactly one positional: the URL
+    auto args = cfg.remainder();
+    if (args.size() != 1) {
+        sys.println("*** expected positional argument: URL");
         return EXIT_FAILURE;
     }
+
+    // parse URL
     uri resource;
-    if (auto err = parse(remainder[0], resource)) {
-        sys.println("*** failed to parse URI: {} ", err);
+    if (auto err = parse(args[0], resource)) {
+        sys.println("*** bad URI: {}", err);
         return EXIT_FAILURE;
     }
-    auto ca_file = caf::get_as<std::string>(cfg, "tls.ca-file");
-    auto method = caf::get_or(cfg, "method", default_method);
-    auto payload = caf::get_or(cfg, "payload", ""sv);
-    auto result
-        = http::with(sys)
-        // Lazy load TLS when connecting to HTTPS endpoints.
-        .context_factory([ca_file]() {
-        return ssl::emplace_client(ssl::tls::v1_2)().and_then(
-            ssl::load_verify_file_if(ca_file));
-            })
-        // Connect to the address of the resource.
+
+    // fetch --tls.ca-file (key is "tls.ca-file")
+    // auto ca_file = caf::get_or(cfg, "tls.ca-file", std::string{});
+
+    // read API key
+    auto* key = std::getenv("OPENAI_API_KEY");
+    if (!key) {
+        sys.println("*** please set OPENAI_API_KEY in the environment");
+        return EXIT_FAILURE;
+    }
+    std::string api_key = key;
+
+    // our JSON body
+    auto payload = R"({
+    "model":"gpt-3.5-turbo",
+    "messages":[
+      {"role":"system","content":"You are a helpful assistant."},
+      {"role":"user","content":"Hello from CAF!"}
+    ]
+  })"sv;
+
+    // build the request
+    auto result = http::with(sys)
+        .context_factory([]() -> caf::expected<ssl::context> {
+
+
+        return ssl::emplace_client(ssl::tls::v1_2)();
+        })
         .connect(resource)
-        // If we don't succeed at first, try up to 5 times with 1s delay.
         .retry_delay(1s)
         .max_retry_count(5)
-        // Wait up to 250ms for establishing a connection.
         .connection_timeout(250ms)
-        // After connecting, send a get request.
-        .add_header_field("User-Agent", "CAF-Client")
-        .request(method, payload);
+        .add_header_field("User-Agent", "CAF-OpenAI-Client")
+        .add_header_field("Authorization", "Bearer " + api_key)
+        .add_header_field("Content-Type", "application/json")
+        .request(default_method, payload);
+
     if (!result) {
         sys.println("*** Failed to initiate connection: {}", result.error());
         return EXIT_FAILURE;
     }
+
+    // handle the response
     sys.spawn([res = result->first](event_based_actor* self) {
         res.bind_to(self).then(
             [self](const http::response& r) {
-                self->println("Server responded with HTTP {}: {}",
-                    static_cast<uint16_t>(r.code()), phrase(r.code()));
-                self->println("Header fields:");
-                for (const auto& [key, value] : r.header_fields())
-                    self->println("- {}: {}", key, value);
-                if (r.body().empty())
-                    return;
-                if (is_valid_utf8(r.body())) {
-                    self->println("Payload: {}", to_string_view(r.body()));
-                }
+                self->println("HTTP {} {}", uint16_t(r.code()), phrase(r.code()));
+                for (auto& [k, v] : r.header_fields())
+                    self->println("{}: {}", k, v);
+                if (r.body().empty()) return;
+                if (is_valid_utf8(r.body()))
+                    self->println("Body: {}", to_string_view(r.body()));
                 else {
-                    auto split_at = [](const_byte_span bytes, size_t at) {
-                        if (bytes.size() > at)
-                            return std::pair{ bytes.subspan(0, at), bytes.subspan(at) };
-                        return std::pair{ bytes, const_byte_span{} };
-                        };
-                    // Print 8 bytes per row in hex.
-                    self->println("Payload:");
+                    self->println("Body (hex):");
                     auto bytes = r.body();
-                    const_byte_span row;
                     while (!bytes.empty()) {
-                        std::tie(row, bytes) = split_at(bytes, 8);
-                        self->println("{}", to_hex_str(row));
+                        auto row = bytes.subspan(0, std::min<size_t>(8, bytes.size()));
+                        bytes = bytes.subspan(row.size());
+                        self->println("  {}", to_hex_str(row));
                     }
                 }
             },
             [self](const error& err) {
-                self->println("*** HTTP request failed: {}", err);
-            });
+                self->println("*** HTTP error: {}", err);
+            }
+        );
         });
+
     return EXIT_SUCCESS;
 }
 
